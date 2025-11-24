@@ -1,38 +1,323 @@
-.App {
-  text-align: center;
-}
+import React, { useState } from 'react';
+import { ArrowLeft, Mail, Linkedin, Github, FileText } from 'lucide-react';
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+// Sample data - Replace with your actual information
+const portfolioData = {
+  name: "Heesung Han",
+  title: "Mechanical Engineering student at Olin College of Engineering",
+  bio: "Hey there! I'm a software engineer who loves turning coffee into code and ideas into reality. When I'm not debugging, you'll find me exploring new tech, building side projects, or probably overthinking the best way to organize my files. Let's build something cool together!",
+  email: "1220heesung@gmail.com",
+  linkedin: "linkedin.com/in/heesunghan",
+  github: "github.com/heesunggg",
+  resume: "resume.pdf",
+  profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+  
+  experiences: [
+    {
+      id: 1,
+      title: "Senior Software Engineer",
+      company: "Tech Corp",
+      date: "2022 - Present",
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop",
+      shortDesc: "Leading backend development for cloud infrastructure serving 10M+ users",
+      fullDesc: "As a Senior Software Engineer at Tech Corp, I lead the backend development team responsible for our cloud infrastructure that serves over 10 million users daily. My key achievements include architecting a microservices-based system that reduced latency by 40%, implementing automated CI/CD pipelines that decreased deployment time by 60%, and mentoring a team of 5 junior engineers. Technologies used: Python, AWS, Docker, Kubernetes, PostgreSQL.",
+      tags: ["Python", "AWS", "Kubernetes", "Leadership"]
+    },
+    {
+      id: 2,
+      title: "Machine Learning Engineer",
+      company: "AI Innovations",
+      date: "2020 - 2022",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      shortDesc: "Developed predictive models improving accuracy by 35%",
+      fullDesc: "At AI Innovations, I developed and deployed machine learning models for predictive analytics that improved accuracy by 35% compared to previous systems. I worked on natural language processing pipelines, computer vision applications, and recommendation systems. Key projects included building a real-time fraud detection system processing 1M+ transactions daily and creating a customer churn prediction model that saved $2M annually. Technologies: TensorFlow, PyTorch, scikit-learn, Apache Spark.",
+      tags: ["TensorFlow", "PyTorch", "NLP", "Computer Vision"]
+    },
+    {
+      id: 3,
+      title: "Full Stack Developer",
+      company: "StartupXYZ",
+      date: "2018 - 2020",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      shortDesc: "Built responsive web applications from concept to deployment",
+      fullDesc: "As a Full Stack Developer at StartupXYZ, I was responsible for building and maintaining responsive web applications from initial concept through deployment. I collaborated directly with designers and product managers to create intuitive user interfaces and robust backend systems. Notable accomplishments include developing a real-time collaboration tool used by 50K+ users, optimizing database queries that reduced page load times by 70%, and implementing OAuth authentication system. Tech stack: React, Node.js, MongoDB, Redis, GraphQL.",
+      tags: ["React", "Node.js", "MongoDB", "GraphQL"]
+    },
+    {
+      id: 4,
+      title: "Robotics Engineer Intern",
+      company: "Automation Labs",
+      date: "2017 - 2018",
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop",
+      shortDesc: "Developed control systems for industrial robots",
+      fullDesc: "During my internship at Automation Labs, I contributed to the development of control systems for industrial robotic arms. I worked on implementing PID controllers, developing motion planning algorithms, and creating simulation environments for testing. This experience gave me a strong foundation in embedded systems and real-time computing.",
+      tags: ["C++", "ROS", "Control Systems", "Embedded"]
+    },
+    {
+      id: 5,
+      title: "Research Assistant",
+      company: "University Lab",
+      date: "2016 - 2017",
+      image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=600&fit=crop",
+      shortDesc: "Conducted research in computer vision and autonomous systems",
+      fullDesc: "As a Research Assistant, I worked on projects related to computer vision and autonomous navigation systems. I implemented various deep learning models for object detection and tracking, and contributed to research papers published in conferences. This role deepened my understanding of machine learning theory and practical applications.",
+      tags: ["Computer Vision", "Deep Learning", "Research", "Python"]
+    },
+    {
+      id: 6,
+      title: "Software Development Intern",
+      company: "FinTech Solutions",
+      date: "Summer 2016",
+      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop",
+      shortDesc: "Built features for mobile banking application",
+      fullDesc: "At FinTech Solutions, I contributed to the development of a mobile banking application. I implemented new features for transaction management, worked on improving the app's performance, and collaborated with the QA team to ensure high code quality. This experience introduced me to agile development practices and financial technology systems.",
+      tags: ["Swift", "iOS", "REST APIs", "Agile"]
+    }
+  ],
+  
+  projects: [
+    {
+      id: 1,
+      title: "Smart Home Automation",
+      image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=800&h=600&fit=crop",
+      shortDesc: "IoT system controlling home devices via voice and mobile app",
+      fullDesc: "Smart Home Automation is a comprehensive IoT system that allows users to control various home devices through voice commands and a mobile application. The system integrates with popular smart home devices and provides energy monitoring, automated schedules, and intelligent routines based on user behavior. Features include: real-time device status monitoring, voice control integration with Alexa and Google Home, energy usage analytics, and machine learning-based automation suggestions. Built with: Raspberry Pi, MQTT, React Native, Node.js, Python, TensorFlow Lite.",
+      tags: ["IoT", "React Native", "Python", "ML"]
+    },
+    {
+      id: 2,
+      title: "Real-time Analytics Dashboard",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      shortDesc: "Live data visualization platform processing millions of events",
+      fullDesc: "A high-performance real-time analytics dashboard capable of processing and visualizing millions of events per second. The platform provides customizable dashboards, complex data aggregations, and predictive analytics. Key features include: real-time stream processing, interactive data visualizations, custom metric creation, automated alerting system, and historical data analysis. The system handles 5M+ events per second with sub-second latency. Technologies: Apache Kafka, Elasticsearch, React, D3.js, WebSockets, Go, Redis, TimescaleDB.",
+      tags: ["Kafka", "React", "D3.js", "Go"]
+    },
+    {
+      id: 3,
+      title: "E-commerce Platform",
+      image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop",
+      shortDesc: "Full-featured online marketplace with payment integration",
+      fullDesc: "A complete e-commerce platform featuring product management, shopping cart, order processing, and payment integration. The platform includes an admin dashboard for sellers, customer review system, advanced search with filters, and recommendation engine. Security features include PCI compliance, fraud detection, and secure payment processing. Performance optimizations enable handling 10K+ concurrent users. Built with: React, Next.js, Node.js, PostgreSQL, Stripe API, Redis, Docker, AWS S3.",
+      tags: ["Next.js", "Stripe", "PostgreSQL", "AWS"]
+    },
+    {
+      id: 4,
+      title: "Mobile Fitness Tracker",
+      image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=600&fit=crop",
+      shortDesc: "Cross-platform app for workout tracking and health monitoring",
+      fullDesc: "Mobile Fitness Tracker is a cross-platform mobile application that helps users track workouts, monitor health metrics, and achieve fitness goals. Features include: GPS-based activity tracking, heart rate monitoring integration, personalized workout plans, nutrition tracking, social challenges, and progress analytics. The app syncs with popular fitness devices and provides AI-powered coaching suggestions. Technologies: React Native, Firebase, TensorFlow Lite, HealthKit/Google Fit APIs, MongoDB, Node.js.",
+      tags: ["React Native", "Firebase", "HealthKit", "TensorFlow"]
+    },
+    {
+      id: 5,
+      title: "Blockchain Voting System",
+      image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=600&fit=crop",
+      shortDesc: "Secure and transparent voting platform using blockchain",
+      fullDesc: "A blockchain-based voting system designed to provide secure, transparent, and tamper-proof elections. The platform uses smart contracts to ensure vote integrity and provides real-time result tracking. Features include voter authentication, encrypted vote storage, audit trails, and verifiable results. Built with: Solidity, Ethereum, Web3.js, React, IPFS.",
+      tags: ["Blockchain", "Solidity", "Web3", "React"]
+    },
+    {
+      id: 6,
+      title: "AI Code Assistant",
+      image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=600&fit=crop",
+      shortDesc: "VS Code extension for intelligent code suggestions",
+      fullDesc: "An AI-powered code assistant that provides intelligent code suggestions, bug detection, and refactoring recommendations. The extension uses machine learning models trained on millions of code repositories to understand context and provide relevant suggestions. Features include: code completion, bug prediction, code review automation, and documentation generation. Technologies: TypeScript, VS Code API, Python, TensorFlow, OpenAI API.",
+      tags: ["TypeScript", "VS Code", "AI", "Python"]
+    }
+  ]
+};
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+const ImageCard = ({ item, onClick }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
+  return (
+    <div 
+      onClick={onClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="relative overflow-hidden rounded-lg cursor-pointer aspect-square"
+    >
+      <img 
+        src={item.image} 
+        alt={item.title}
+        className="w-full h-full object-cover"
+        style={{
+          transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+          transition: 'transform 0.3s ease'
+        }}
+      />
+      <div 
+        className="absolute inset-0 flex flex-col justify-center items-center p-6 text-center"
+        style={{
+          backgroundColor: isHovered ? 'rgba(0, 0, 0, 0.6)' : 'rgba(0, 0, 0, 0)',
+          opacity: isHovered ? 1 : 0,
+          transition: 'all 0.3s ease'
+        }}
+      >
+        <h3 className="text-white text-lg font-semibold mb-2">{item.title}</h3>
+        {item.company && <p className="text-white text-sm mb-3">{item.company}</p>}
+        <p className="text-white text-sm leading-relaxed">{item.shortDesc}</p>
+      </div>
+    </div>
+  );
+};
+
+const DetailPage = ({ item, onBack, type }) => {
+  return (
+    <div className="min-h-screen bg-white">
+      <div className="max-w-5xl mx-auto px-6 py-12">
+        <button
+          onClick={onBack}
+          className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-8 transition-colors group"
+        >
+          <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+          <span>Back</span>
+        </button>
+        
+        <div className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+          <div className="aspect-video w-full bg-gray-100 relative">
+            <img 
+              src={item.image} 
+              alt={item.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          
+          <div className="p-10">
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">{item.title}</h1>
+            {type === 'experience' && (
+              <div className="flex items-center gap-4 text-gray-600 mb-6">
+                <span className="font-medium">{item.company}</span>
+                <span>•</span>
+                <span>{item.date}</span>
+              </div>
+            )}
+            
+            <div className="flex flex-wrap gap-2 mb-8">
+              {item.tags.map((tag, idx) => (
+                <span key={idx} className="px-4 py-2 bg-gray-100 text-gray-700 rounded text-sm font-medium">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-gray-700 leading-relaxed">{item.fullDesc}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const App = () => {
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedType, setSelectedType] = useState(null);
+  
+  const handleCardClick = (item, type) => {
+    setSelectedItem(item);
+    setSelectedType(type);
+  };
+  
+  const handleBack = () => {
+    setSelectedItem(null);
+    setSelectedType(null);
+  };
+  
+  if (selectedItem) {
+    return (
+      <DetailPage 
+        item={selectedItem} 
+        onBack={handleBack}
+        type={selectedType}
+      />
+    );
   }
-}
+  
+  return (
+    <div className="min-h-screen bg-white" style={{ fontFamily: 'Montserrat, Georgia, serif' }}>
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        {/* Hero Section */}
+        <div className="text-center mb-20">
+          <div className="mb-8 flex justify-center">
+            <img 
+              src={portfolioData.profileImage} 
+              alt={portfolioData.name}
+              className="w-48 h-48 rounded-full object-cover border-2 border-gray-200 shadow-md"
+            />
+          </div>
+          
+          <h1 className="text-5xl font-bold text-gray-900 mb-3">
+            {portfolioData.name}
+          </h1>
+          <p className="text-xl text-gray-600 mb-6">{portfolioData.title}</p>
+          <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed mb-10">
+            {portfolioData.bio}
+          </p>
+          
+          <div className="flex justify-center gap-4 flex-wrap">
+            <a href={`mailto:${portfolioData.email}`} className="flex items-center gap-2 px-5 py-2.5 border border-gray-300 rounded text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-all">
+              <Mail size={18} />
+              <span>Email</span>
+            </a>
+            <a href={`https://${portfolioData.linkedin}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 border border-gray-300 rounded text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-all">
+              <Linkedin size={18} />
+              <span>LinkedIn</span>
+            </a>
+            <a href={`https://${portfolioData.github}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 border border-gray-300 rounded text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-all">
+              <Github size={18} />
+              <span>GitHub</span>
+            </a>
+            <a href={portfolioData.resume} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 border border-gray-300 rounded text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-all">
+              <FileText size={18} />
+              <span>Resume</span>
+            </a>
+          </div>
+        </div>
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+        {/* Experience Section */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-3 inline-block relative">
+              Experience
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-900 transform translate-y-2"></div>
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {portfolioData.experiences.map(exp => (
+              <ImageCard 
+                key={exp.id} 
+                item={exp} 
+                onClick={() => handleCardClick(exp, 'experience')}
+              />
+            ))}
+          </div>
+        </div>
 
-.App-link {
-  color: #61dafb;
-}
+        {/* Projects Section */}
+        <div>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-3 inline-block relative">
+              Projects
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-900 transform translate-y-2"></div>
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {portfolioData.projects.map(proj => (
+              <ImageCard 
+                key={proj.id} 
+                item={proj} 
+                onClick={() => handleCardClick(proj, 'project')}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+export default App;
