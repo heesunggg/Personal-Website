@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Mail, Linkedin, Github, FileText, ExternalLink } from 'lucide-react';
 
 // Sample data - Replace with your actual information
+const BASE_URL = process.env.PUBLIC_URL || '';
 const portfolioData = {
   name: "Heesung Han",
   title: "Mechanical Engineering Student",
@@ -9,8 +10,8 @@ const portfolioData = {
   email: "1220heesung@gmail.com",
   linkedin: "linkedin.com/in/heesunghan",
   github: "github.com/heesunggg",
-  resume: "/images/Resume- Heesung Han.pdf",
-  profileImage: "/images/linkedinpfp.jpg",
+  resume: '${BASE_URL}/images/Resume- Heesung Han.pdf',
+  profileImage: '${BASE_URL}/images/linkedinpfp.jpg',
   
   experiences: [
     {
@@ -18,8 +19,8 @@ const portfolioData = {
       title: "Research and Development Intern",
       company: "Simplehuman",
       date: "2024",
-      thumbnailImage: "/images/simplehuman_cover.jpg",
-      detailImage: "/images/simplehuman_cover.jpg",
+      thumbnailImage: '${BASE_URL}/images/simplehuman_cover.jpg',
+      detailImage: '${BASE_URL}/images/simplehuman_cover.jpg',
       shortDesc: "Product testing and development",
       tags: ["Product Design", "Testing", "CAD", "Autodesk Fusion 360", "Solidworks", "Laser cutting", "3D printing"],
       sections: [
@@ -35,7 +36,7 @@ const portfolioData = {
         {
           heading: "Key Projects",
           content: {
-            image:"/images/scentdiffuser.jpg",
+            image:'${BASE_URL}/images/scentdiffuser.jpg',
             textBlocks: [
               {
             text: "During my time on the R&D team, I worked on several exploratory product concepts, each requiring a mix of engineering design, hands-on prototyping, and experimental validation. I tested and analyzed early trash can mechanisms, evaluated steamer performance, and supported research into scent diffusion technologies by measuring spray outputs, testing nebulizer geometries, and examining condensation behavior under different flow conditions. I built multiple custom fixtures, including 3D-printed nebulizer housings, tortuous-path prototypes, and a full XYZ positioner with detachable needles to simulate consistent nebulizer performance.",
@@ -56,8 +57,8 @@ const portfolioData = {
       title: "Mechanical Engineer",
       company: "Baja SAE",
       date: "2024-Current",
-      thumbnailImage: "/images/transparentbajalogo.png",
-      detailImage: "/images/Baja_Team_Photo_2025.jpg",
+      thumbnailImage: '${BASE_URL}/images/transparentbajalogo.png',
+      detailImage: '${BASE_URL}/images/Baja_Team_Photo_2025.jpg',
       shortDesc: "Drivetrain design- Rear Spool",
       tags: ["Solidworks", "Manual Lathe", "Team Collaboration", "Manual Mill", "Analysis", "Research"],
             sections: [
@@ -82,7 +83,7 @@ const portfolioData = {
                     links: [
             {
               text: "Design Review Slides",
-              url: "/images/CVTGuardingBaja2024-2025.pdf"
+              url: '${BASE_URL}/images/CVTGuardingBaja2024-2025.pdf'
             },
 
           ]
@@ -90,7 +91,7 @@ const portfolioData = {
         {
           subheading: "Rear Spool",
           content: {
-            image: "/images/rearspool.png",
+            image: '${BASE_URL}/images/rearspool.png',
             imagePosition: "right",
             imageSize: "large",
             textBlocks: [
@@ -103,11 +104,11 @@ const portfolioData = {
             links: [
             {
               text: "Design Review Slides 1- Rear Output",
-              url: "/images/1_RearOutput2025DesignReview.pdf"
+              url: '${BASE_URL}/images/1_RearOutput2025DesignReview.pdf'
             },
             {
               text: "Design Review Slides 2- Rear Output",
-              url: "/images/2_RearOutput2025DesignReview.pdf"
+              url: '${BASE_URL}/images/2_RearOutput2025DesignReview.pdf'
             },
 
           ]
@@ -123,8 +124,8 @@ const portfolioData = {
       title: "Mechanical Engineer",
       company: "Phoenix Farming- Olin/MIT Aerial Farm Monitoring Research",
       date: "2024-Current",
-      thumbnailImage: "/images/robolabsfrontcover.png",
-      detailImage: "/images/robolabs_background.png",
+      thumbnailImage: '${BASE_URL}/images/robolabsfrontcover.png',
+      detailImage: '${BASE_URL}/images/robolabs_background.png',
       shortDesc: "Farm Robotics Researcher",
       tags: ["CAD", "Manufacturing", "Arduino", "Onshape", "Research", "3D printing", "Prototyping"],
       sections: [
@@ -144,7 +145,7 @@ const portfolioData = {
 
             ],
             layout: "side-by-side",
-            image: "/images/clawrobolabslockedin.png",
+            image: '${BASE_URL}/images/clawrobolabslockedin.png',
             imagePosition: "right",
             imageSize: "medium",
           },
@@ -153,7 +154,7 @@ const portfolioData = {
           subheading: "Drone Docking Station",
           content: {
             layout: "side-by-side",
-            image: "/images/robolabsdockingstation.png",
+            image: '${BASE_URL}/images/robolabsdockingstation.png',
             imagePosition: "left",
             imageSize: "medium",
             textBlocks: [
@@ -202,8 +203,8 @@ const portfolioData = {
       title: "Captain",
       company: "First Robotics Competition Team 687",
       date: "2024",
-      thumbnailImage: "/images/687_2024.png",
-      detailImage: "/images/frc2024_banner.jpg",
+      thumbnailImage: '${BASE_URL}/images/687_2024.png',
+      detailImage: '${BASE_URL}/images/frc2024_banner.jpg',
       shortDesc: "2 times Finalist: Top 15 in California",
       tags: ["Scouting", "Strategy", "Autodesk Fusion 360", "3D printing", "Leadership", "Team Management"],
       sections: [
@@ -227,7 +228,7 @@ const portfolioData = {
               "Able to pivot the shooter",
             ],
             layout: "side-by-side",
-            image: "/images/frame2024.png",
+            image: '${BASE_URL}/images/frame2024.png',
             imagePosition: "right",
             imageSize: "medium",
           },
@@ -236,7 +237,7 @@ const portfolioData = {
           subheading: "Intake System",
           content: {
             layout: "side-by-side",
-            image: "/images/frc2024intake.png",
+            image: '${BASE_URL}/images/frc2024intake.png',
             imagePosition: "left",
             imageSize: "medium",
             textBlocks: [
@@ -258,7 +259,7 @@ const portfolioData = {
           subheading: "Shooter System",
           content: {
             layout: "side-by-side",
-            image: "/images/2024frcshooter.png",
+            image: '${BASE_URL}/images/2024frcshooter.png',
             imagePosition: "right",
             imageSize: "medium",
             textBlocks: [
@@ -288,14 +289,14 @@ const portfolioData = {
               "Ventura County Team Sustainability Award ",
 
             ],
-            image: "/images/687_full_cad.png",
+            image: '${BASE_URL}/images/687_full_cad.png',
             layout: "side-by-side",
             imagePosition: "left"
           },
           links: [
             {
               text: "Technical Binder",
-              url: "/images/frcjudgepacket.pdf"
+              url: '${BASE_URL}/images/frcjudgepacket.pdf'
             },
             {
               text: "Robot Reveal",
@@ -319,8 +320,8 @@ const portfolioData = {
       title: "Design Lead",
       company: "First Robotics Competition Team 687",
       date: "2023",
-      thumbnailImage: "/images/687_2023.png",
-      detailImage: "/images/frc_2023_groupwin.JPG",
+      thumbnailImage: '${BASE_URL}/images/687_2023.png',
+      detailImage: '${BASE_URL}/images/frc_2023_groupwin.JPG',
       shortDesc: "World Division Winner: Top 32 out of 3354 robots",
       tags: ["Autodesk Fusion 360", "3D printing", "laser cutting", "Leadership", "Robot Driver"],
       sections: [
@@ -344,7 +345,7 @@ const portfolioData = {
               "Not tippy when stored inside the robot perimeter"
             ],
             layout: "side-by-side",
-            image: "/images/2023drivetrain+Aframe.png",
+            image: '${BASE_URL}/images/2023drivetrain+Aframe.png',
             imagePosition: "right",
             imageSize: "medium",
           },
@@ -353,7 +354,7 @@ const portfolioData = {
           subheading: "Elevator + Claw System",
           content: {
             layout: "side-by-side",
-            image: "/images/2023-elevator.png",
+            image: '${BASE_URL}/images/2023-elevator.png',
             imagePosition: "left",
             imageSize: "small",
             textBlocks: [
@@ -388,7 +389,7 @@ const portfolioData = {
               "Los Angeles Regional Winners ",
               "Los Angeles Industrial Design Award",
             ],
-            image: "/images/687_award_2023.jpg",
+            image: '${BASE_URL}/images/687_award_2023.jpg',
             layout: "side-by-side",
             imagePosition: "right"
           },
@@ -399,7 +400,7 @@ const portfolioData = {
             },
             {
               text: "Elevator Assembly Guide",
-              url: "/images/687-23-elevatorasmguide.pdf"
+              url: '${BASE_URL}/images/687-23-elevatorasmguide.pdf'
             },
                         {
               text: "Watch the robot in action!",
@@ -415,8 +416,8 @@ const portfolioData = {
     {
       id: 1,
       title: "BoxBot- Ongoing Project",
-      thumbnailImage: "/images/boxbot.png",
-      detailImage: "/images/boxbot.png",
+      thumbnailImage: '${BASE_URL}/images/boxbot.png',
+      detailImage: '${BASE_URL}/images/boxbot.png',
       date: "Fall 2025",  
       shortDesc: "Principles of Integrated Engineering: Autonomously move boxes of any sizes.",
       tags: ["Leadership", "Team Management", "Mechanical Design", "Onshape", "Fabrication", "Design Analysis", "Rapid Prototyping"],
@@ -436,8 +437,8 @@ const portfolioData = {
     {
       id: 2,
       title: "Wall Climber Robot ",
-      thumbnailImage: "/images/transparentwallclimb.png",
-      detailImage: "/images/transparentwallclimb.png",
+      thumbnailImage: '${BASE_URL}/images/transparentwallclimb.png',
+      detailImage: '${BASE_URL}/images/transparentwallclimb.png',
       date: "Fall 2023-Spring 2024",  
       shortDesc: "Engineering Design and Development: A Wall Climbing robot.",
       tags: ["CAD", "Autodesk Fusion 360", "3D printing", "Electrical Integration", "Leadership"],
@@ -458,7 +459,7 @@ const portfolioData = {
           links: [
             {
               text: "Here is a Proof of Concept for the project!",
-              url: "/images/MonteraCDR 2_ POC.pdf"
+              url: '${BASE_URL}/images/MonteraCDR 2_ POC.pdf'
             },
           ]
         }
@@ -467,8 +468,8 @@ const portfolioData = {
     {
       id: 3,
       title: "Line Detection Robot",
-      thumbnailImage: "/images/linefollowingtrans.png",
-      detailImage: "/images/linefollowingtrans.png",
+      thumbnailImage: '${BASE_URL}/images/linefollowingtrans.png',
+      detailImage: '${BASE_URL}/images/linefollowingtrans.png',
       date: "Fall 2025",  
       shortDesc: "Principles of Integrated Engineering: Line following robot.",
       tags: ["CAD", "Onshape", "3D printing", "Integration"],
@@ -489,7 +490,7 @@ const portfolioData = {
           links: [
             {
               text: "Here is the write up for the Line Detection Robot!",
-              url: "/images/Mini-Project 3_ DC-Motor-Control.pdf"
+              url: '${BASE_URL}/images/Mini-Project 3_ DC-Motor-Control.pdf'
             },
           ]
         }
@@ -499,8 +500,8 @@ const portfolioData = {
       id: 4,
       title: "Soft Heads",
       date: "Spring 2025",  
-      thumbnailImage: "/images/softheads_screen.png",
-      detailImage: "/images/softheads_screen.png",
+      thumbnailImage: '${BASE_URL}/images/softheads_screen.png',
+      detailImage: '${BASE_URL}/images/softheads_screen.png',
       shortDesc: "Software Design: An interactive action packed survival game. ",
       tags: ["Gameplay Prototyping", "Game Loop Architecture", "Python", "Version Control (Git)", "GitHub Projects"],
       sections: [
