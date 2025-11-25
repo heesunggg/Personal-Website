@@ -289,7 +289,7 @@ const portfolioData = {
               "Ventura County Team Sustainability Award ",
 
             ],
-            image: '${BASE_URL}/images/687_full_cad.png',
+            image: `${BASE_URL}/images/687_full_cad.png`,
             layout: "side-by-side",
             imagePosition: "left"
           },
