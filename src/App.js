@@ -354,7 +354,7 @@ const portfolioData = {
           subheading: "Elevator + Claw System",
           content: {
             layout: "side-by-side",
-            image: `${BASE_URL}/images/2023-elevator.png`,
+            image: `${BASE_URL}/images/elevatornew.png`,
             imagePosition: "left",
             imageSize: "small",
             textBlocks: [
