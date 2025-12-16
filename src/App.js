@@ -189,8 +189,12 @@ const portfolioData = {
           },
           links: [
             {
-              text: "Prototype Video",
+              text: "Mark 1 Prototype Video",
               url: "https://youtube.com/shorts/Do9_tr8Wu1I?feature=share"
+            },
+                        {
+              text: "Mark 2 Prototype Video",
+              url: "https://www.youtube.com/watch?v=f9SXiV7TELU"
             },
 
           ]
@@ -416,8 +420,8 @@ const portfolioData = {
     {
       id: 1,
       title: "BoxBot- Ongoing Project",
-      thumbnailImage: `${BASE_URL}/images/boxbot.png`,
-      detailImage: `${BASE_URL}/images/boxbot.png`,
+      thumbnailImage: `${BASE_URL}/images/boxbotcoverphotofornow.png`,
+      detailImage: `${BASE_URL}/images/boxbotcoverphotofornow.png`,
       date: "Fall 2025",  
       shortDesc: "Principles of Integrated Engineering: Autonomously move boxes of any sizes.",
       tags: ["Leadership", "Team Management", "Mechanical Design", "Onshape", "Fabrication", "Design Analysis", "Rapid Prototyping"],
@@ -429,9 +433,18 @@ const portfolioData = {
             bullets: [
 
             ],
-            layout: "text-left"
-          }
+            layout: "text-left",
+            image: `${BASE_URL}/images/updatedcadboxbotv2.png`,
+
+          },
+                  links: [
+            {
+              text: "Teleop Video of BoxBot ",
+              url: `https://youtu.be/tdZVUh1zeNE`
+            },
+          ]
         }
+
       ]
     },
     {
