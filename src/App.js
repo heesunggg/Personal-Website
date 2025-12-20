@@ -419,28 +419,32 @@ const portfolioData = {
   projects: [
     {
       id: 1,
-      title: "BoxBot- Ongoing Project",
-      thumbnailImage: `${BASE_URL}/images/boxbotcoverphotofornow.png`,
-      detailImage: `${BASE_URL}/images/boxbotcoverphotofornow.png`,
+      title: "BoxBot",
+      thumbnailImage: `${BASE_URL}/images/mainphototrying.png`,
+      detailImage: `${BASE_URL}/images/mainphototrying.png`,
       date: "Fall 2025",  
-      shortDesc: "Principles of Integrated Engineering: Autonomously move boxes of any sizes.",
-      tags: ["Leadership", "Team Management", "Mechanical Design", "Onshape", "Fabrication", "Design Analysis", "Rapid Prototyping"],
+      shortDesc: "Principles of Integrated Engineering: Move Boxes of various sizes.",
+      tags: ["Leadership", "Team Management", "Mechanical Design", "Onshape", "Fabrication", "Design Analysis", "Rapid Prototyping", "Website Development", "GitHub",],
       sections: [
         {
           heading: "Project Overview",
           content: {
-            text: "BoxBot is an autonomous robot designed to handle boxes of varying sizes using adaptive gripping mechanisms.  As a project manager of three other engineers, I am in charge of managing timelines, updating the order sheet, and making sure the we are meeting the deadlines. As a mechanical engineer, I have designed and fabricated the drive base, having weight and compatibility as key constraints. This project is still ongoing, and final updates with more details of the project will be released in early 2026.",
-            bullets: [
-
+            textBlocks: [
+            {
+            text: "BoxBot is an  robot designed to handle boxes of varying sizes using adaptive gripping mechanisms.  As a project manager of three other engineers, I am in charge of managing timelines, updating the order sheet, and making sure the we are meeting the deadlines. As a mechanical engineer, I have designed and fabricated the drive base, having weight and compatibility as key constraints.",
+            },
+            {
+            text: "In a Span of 8 weeks, we designed and prototyped this robot. We spent countless hours working on this project. PLease check out the BoxBot Website link for more detailed information.",
+            }
             ],
             layout: "text-left",
-            image: `${BASE_URL}/images/updatedcadboxbotv2.png`,
+            image: `${BASE_URL}/images/colorfulcadupdated.png`,
 
           },
                   links: [
             {
-              text: "Teleop Video of BoxBot ",
-              url: `https://youtu.be/tdZVUh1zeNE`
+              text: "Box Bot Website",
+              url: `https://heesunggg.github.io/boxbotwebsite/`
             },
           ]
         }
