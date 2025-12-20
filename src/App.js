@@ -544,7 +544,42 @@ const portfolioData = {
         }
         
       ]
-    }
+    },
+    {
+      id: 5,
+      title: "Mastering Manufacturing",
+      thumbnailImage: `${BASE_URL}/images/masteringmanufacturingcoverreal2.png`,
+      detailImage: `${BASE_URL}/images/masteringmanufacturingcoverreal2.png`,
+      date: "Fall 2025",  
+      shortDesc: "Learning the basics of the machine shop: the mill, the lathe, horizontal bandsaw, and the CNC mill",
+      tags: ["CAD", "Fusion 360", "Design for Manufacturing", "Manual Mill", "Manual Lathe", "Horizontal Bandsaw", "CNC Mill", "Computer Aided Manufacturing",],
+      sections: [
+        {
+          heading: "Project Overview",
+          content: {
+            textBlocks: [
+            {
+            text: "I always felt weak on manufacturing compared to my CAD skills. This semester, I made it my goal to be in the machine shop at least once every week, fabricating things I thought was cool. To get used to the machine shop, I used the manual mill to face and drill through different parts for Baja. I used the manual lathe to face through the rear output shaft for Baja.",
+            },
+            {
+            text: "My first project was the Aluminum Cross-shaped figure. Using Fusion 360, CAMmed the figure. After Facing the cross to be a 1 in by 1 in by 1 in cube, we used the CAM and the CNC mill to create the finish you see in the image.",
+            },
+            {
+            text: "My second project was A brass dice. Using Fusion 360, I designed a dice that has the standard hole patterns, but lines connecting some of the holes together. Some of the challenges were to make sure we designed it so it can be manufacturable. After the CAM in the picture below, We faced the brass stock and CNC milled the cube.",
+            },
+            {
+            text: "This experience taught me how to CAM and manufacture, and in the Spring 2026 semester, you can expect more manufacturing project, such as a turners cube and a brass pen.",
+            },
+            ],
+            layout: "text-left",
+            image: `${BASE_URL}/images/CAMsetup.png`,
+
+          },
+  
+        }
+
+      ]
+    },
     
   ]
 };
