@@ -10,7 +10,7 @@ const portfolioData = {
   email: "1220heesung@gmail.com",
   linkedin: "linkedin.com/in/heesunghan",
   github: "github.com/heesunggg",
-  resume: `${BASE_URL}/images/Resume- Heesung Han.pdf`,
+  resume: `${BASE_URL}/images/Heesung Resume-UpdatedMain.pdf`,
   profileImage: `${BASE_URL}/images/linkedinpfp.jpg`,
   
   experiences: [
