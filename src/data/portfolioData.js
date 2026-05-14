@@ -133,10 +133,7 @@ const portfolioData = {
             text: "Farm Robotics Challenge Submission: Report",
             url: `${BASE_URL}/images/Robolabsfinalreport.pdf`
             },
-            {
-            text: "Farm Robotics Challenge Submission: Video",
-            url: `${BASE_URL}/images/Robolabsvideo.mp4`
-            },
+
         ]
         },
     ],
