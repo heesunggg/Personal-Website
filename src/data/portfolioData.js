@@ -14,6 +14,7 @@ const portfolioData = {
     // 1st: Simplehuman
     {
       id: 1,
+      slug: "simplehuman",
       title: "Research and Development Intern",
       company: "Simplehuman",
       date: "2024",
@@ -49,6 +50,7 @@ const portfolioData = {
     // 2nd: MIT / Olin Aerial Farm Monitoring Research (Summer 2026)
     {
       id: 8,
+      slug: "aerial-farm-research",
       title: "Research Intern",
       company: "MIT / Olin College — Aerial Farm Monitoring Research",
       date: "Summer 2026",
@@ -152,6 +154,7 @@ const portfolioData = {
     // 3rd: Pacifier Shield FEA Research
     {
       id: 9,
+      slug: "pacifier-fea",
       title: "Mechanical Engineering Research Intern",
       company: "Pacifier Shield FEA Research — Olin College",
       date: "2025 - Current",
@@ -226,6 +229,7 @@ const portfolioData = {
     // 4th: Robolabs / Phoenix Farming
     {
     id: 3,
+    slug: "phoenix-farming",
     title: "Mechanical Lead",
     company: "Phoenix Farming- Olin/MIT Aerial Farm Monitoring Research",
     date: "2024-Current",
@@ -318,6 +322,7 @@ const portfolioData = {
     // 5th: Owl Vision
     {
     id: 7,
+    slug: "owl-vision",
     title: "Mechanical Engineering Intern",
     company: "Owl Vision",
     date: "2026 - Current",
@@ -408,6 +413,7 @@ const portfolioData = {
     // 6th: Baja SAE
     {
       id: 2,
+      slug: "baja-sae",
       title: "Mechanical Engineer",
       company: "Baja SAE",
       date: "2024-2026",
@@ -459,6 +465,7 @@ const portfolioData = {
     // 7th: FRC Captain 2024
     {
       id: 4,
+      slug: "frc-687-2024",
       title: "Captain",
       company: "First Robotics Competition Team 687",
       date: "2024",
@@ -561,6 +568,7 @@ const portfolioData = {
     // 8th: FRC Design Lead 2023
     {
       id: 6,
+      slug: "frc-687-2023",
       title: "Design Lead",
       company: "First Robotics Competition Team 687",
       date: "2023",
@@ -650,6 +658,7 @@ const portfolioData = {
   projects: [
     {
       id: 1,
+      slug: "boxbot",
       title: "BoxBot",
       thumbnailImage: `${BASE_URL}/images/mainphototrying.png`,
       detailImage: `${BASE_URL}/images/mainphototrying.png`,
@@ -679,6 +688,7 @@ const portfolioData = {
     },
     {
       id: 2,
+      slug: "wall-climber",
       title: "Wall Climber Robot",
       thumbnailImage: `${BASE_URL}/images/transparentwallclimb.png`,
       detailImage: `${BASE_URL}/images/transparentwallclimb.png`,
@@ -706,6 +716,7 @@ const portfolioData = {
     },
     {
       id: 3,
+      slug: "line-detection-robot",
       title: "Line Detection Robot",
       thumbnailImage: `${BASE_URL}/images/linefollowingtrans.png`,
       detailImage: `${BASE_URL}/images/linefollowingtrans.png`,
@@ -733,6 +744,7 @@ const portfolioData = {
     },
     {
       id: 4,
+      slug: "soft-heads",
       title: "Soft Heads",
       date: "Spring 2025",
       thumbnailImage: `${BASE_URL}/images/softheads_screen.png`,
@@ -760,6 +772,7 @@ const portfolioData = {
     },
     {
       id: 5,
+      slug: "mastering-manufacturing",
       title: "Mastering Manufacturing",
       thumbnailImage: `${BASE_URL}/images/masteringmanufacturingcoverreal2.png`,
       detailImage: `${BASE_URL}/images/masteringmanufacturingcoverreal2.png`,
