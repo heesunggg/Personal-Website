@@ -3,6 +3,9 @@ import { useState } from "react";
 const ImageCard = ({ item, onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  // Optional per-item zoom for thumbnails whose subject floats in whitespace.
+  const baseScale = item.thumbnailScale || 1;
+
   return (
     <div
       onClick={onClick}
@@ -15,7 +18,8 @@ const ImageCard = ({ item, onClick }) => {
         alt={item.title}
         className="w-full h-full object-cover"
         style={{
-          transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+          transform: `scale(${isHovered ? baseScale * 1.05 : baseScale})`,
+          transformOrigin: item.thumbnailPosition || 'center',
           transition: 'transform 0.3s ease',
         }}
       />

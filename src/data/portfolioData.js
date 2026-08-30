@@ -46,7 +46,184 @@ const portfolioData = {
         }
       ]
     },
-    // 2nd: Robolabs / Phoenix Farming
+    // 2nd: MIT / Olin Aerial Farm Monitoring Research (Summer 2026)
+    {
+      id: 8,
+      title: "Research Intern",
+      company: "MIT / Olin College — Aerial Farm Monitoring Research",
+      date: "Summer 2026",
+      thumbnailImage: `${BASE_URL}/images/aerialfarm_cover.jpg`,
+      detailImage: `${BASE_URL}/images/aerialfarm_cover.jpg`,
+      thumbnailScale: 1.4,
+      shortDesc: "Comparing helical vs. hook anchoring for a drone-deployed soil probe",
+      tags: ["Research", "Electrical Systems", "Arduino", "Control Code", "MATLAB", "Prototyping", "Design of Experiments", "Field Testing"],
+      sections: [
+        {
+          heading: "Overview",
+          content: {
+            text: "Farms cover a lot of ground, and driving equipment across a field to probe the soil compacts the dirt you are trying to measure. The idea behind this research, part of Olin's aerial farm monitoring work with an MIT PhD candidate, is to have a **drone carry a small probing payload**, set it down, take a soil moisture reading, and fly on. My focus over the summer was the piece that makes that possible: how the payload **anchors itself** to the ground so it can drill without pushing itself back off the soil.",
+            layout: "text-left"
+          }
+        },
+        {
+          heading: "Why Anchoring Is Hard",
+          content: {
+            text: "When the probe's auger spins into the soil, the soil pushes back — the reaction force lifts and spins the whole payload instead of driving the probe down. It needs a mechanism that pins it to the ground, deploys in seconds, works across soft and hard soil, and adds almost no weight. The entire payload had to stay light enough for the drone to carry, which kept every part under a tight mass budget.",
+            layout: "text-left"
+          }
+        },
+        {
+          heading: "Two Prototypes",
+          content: {
+            text: "I built two full payloads with different anchoring strategies so we could compare them head to head across the same soil conditions.",
+            layout: "text-left"
+          }
+        },
+        {
+          subheading: "Helical Anchors",
+          content: {
+            image: `${BASE_URL}/images/aerialfarm_cover.jpg`,
+            imagePosition: "right",
+            imageSize: "medium",
+            layout: "side-by-side",
+            text: "Screw-in augers that thread down into the soil and resist being pulled back out. This design held the most anchoring force in testing, but it stood tall on the payload and was sensitive to how level the ground was.",
+          }
+        },
+        {
+          subheading: "Hook Mechanism",
+          content: {
+            image: `${BASE_URL}/images/aerialfarm_hook.png`,
+            imagePosition: "left",
+            imageSize: "medium",
+            layout: "side-by-side",
+            text: "Servo-driven hooks that swing out to roughly 120 degrees and bite into the soil, tested in both single and repeated deployments. Lower profile and flat against the ground, which made landing far more reliable.",
+          }
+        },
+        {
+          heading: "Electrical System & Controls",
+          content: {
+            layout: "text-left",
+            textBlocks: [
+              {
+                text: "I owned all of the electronics on both payloads. The system is built around an **Arduino Nano** driving the anchor actuators, the auger motor, and a load cell for force measurement. I kept the parts list deliberately minimal — no heavy motors or oversized components — so the finished payload came in under the drone's mass limit.",
+              },
+              {
+                text: "I wrote the control routine that runs a full deployment cycle end to end — anchor, drill, measure, retract — and a MATLAB script that records the force data live throughout every test run.",
+              },
+            ]
+          }
+        },
+        {
+          heading: "Lab Testing & Comparison",
+          content: {
+            image: `${BASE_URL}/images/aerialfarm_pulltest.jpg`,
+            imagePosition: "right",
+            imageSize: "medium",
+            layout: "side-by-side",
+            textBlocks: [
+              {
+                text: "We tested both designs against soil compacted to a range of strengths from roughly 0.2 to 2.0 MPa, running 10 trials per soil condition. For pull-out strength, the payload was tied by string to a digital scale, zeroed, and pulled straight up while the scale logged force; a separate load-cell setup measured the compressive reaction force the anchor drives into the soil.",
+              },
+              {
+                text: "I processed the raw data in MATLAB — splitting continuous logs into individual trials, smoothing, subtracting the system's dead weight, dropping faulty runs, and generating box-and-whisker plots of anchor retention and reaction force across soil strength.",
+              },
+            ]
+          }
+        },
+        {
+          heading: "Field Testing",
+          content: {
+            image: `${BASE_URL}/images/aerialfarm_field.jpg`,
+            imagePosition: "left",
+            imageSize: "medium",
+            layout: "side-by-side",
+            text: "We took both payloads out to a working farm to test on real ground. Uneven soil made consistent deployment much harder than the flat lab buckets, and the drone tether snagging on the anchor mechanism during descent was a recurring problem we had to design around.",
+          }
+        },
+        {
+          heading: "Outcome",
+          content: {
+            text: "On pure anchoring performance the helical design held better, but it sat tall and was unstable on landing — on uneven farm soil it struggled to touch down upright and stay put. The hook payload landed flat, stayed stable, and deployed reliably, so the team moved forward with the hook design. The results are being written up for a paper targeting **ICRA 2027**, so detailed numbers are not public yet.",
+            layout: "text-left"
+          }
+        }
+      ]
+    },
+    // 3rd: Pacifier Shield FEA Research
+    {
+      id: 9,
+      title: "Mechanical Engineering Research Intern",
+      company: "Pacifier Shield FEA Research — Olin College",
+      date: "2025 - Current",
+      thumbnailImage: `${BASE_URL}/images/pacifierfea_cad.png`,
+      detailImage: `${BASE_URL}/images/pacifierfea_cad.png`,
+      shortDesc: "Nonlinear FEA of how pacifier shield design loads the infant mandible",
+      tags: ["ANSYS", "Nonlinear FEA", "Transient Structural", "SolidWorks", "Contact Modeling", "Biomechanics", "Research"],
+      sections: [
+        {
+          heading: "Overview",
+          content: {
+            text: "I am a research intern on a project titled **Finite Element Analysis of Pacifier Shield Impact on the Infant Mandible**. Pacifiers are widely used to soothe infants and are associated with a lower risk of SIDS, but there is growing evidence linking pacifier use to disruption of the cranio-facial-respiratory complex. Earlier work in the group quantified the forces the pacifier **bulb** applies to the palatal vault; this project shifts attention to the largely overlooked pacifier **shield**.",
+            layout: "text-left"
+          }
+        },
+        {
+          heading: "The Problem",
+          content: {
+            text: "Pacifier shields were designed for choking prevention rather than biomechanical function, and their rigid, flat shape has gone largely unchanged for decades. Natural sucking needs free, protrusive movement of the mandible to support healthy temporomandibular joint (TMJ) development. A stiff shield pressed against the chin can restrict that motion and hold the mandible in a retruded position during a critical window of rapid jaw growth.",
+            layout: "text-left"
+          }
+        },
+        {
+          heading: "Objective",
+          content: {
+            text: "Use nonlinear, dynamic finite element analysis to evaluate how different pacifier shield designs affect force distribution and restriction of mandibular movement in the developing infant jaw.",
+            layout: "text-left"
+          }
+        },
+        {
+          heading: "Approach",
+          content: {
+            image: `${BASE_URL}/images/pacifierfea_assembly.png`,
+            imagePosition: "right",
+            imageSize: "medium",
+            layout: "side-by-side",
+            text: "The analysis workflow:",
+            bullets: [
+              "Modeled the pacifier, infant bone, and infant jaw in SolidWorks and mated them into a single assembly",
+              "Imported the assembly into ANSYS, assigned material properties, defined contact conditions between the bodies, and refined the contact surface mesh",
+              "Applied a pressure vs. time load curve representing a realistic suck cycle and ran a transient structural analysis",
+              "Solved for stress, deformation, and reaction force to track how mandibular loading evolves through the cycle and where peak impact occurs",
+            ]
+          }
+        },
+        {
+          heading: "Results",
+          content: {
+            image: `${BASE_URL}/images/pacifierfea_stress.png`,
+            imagePosition: "left",
+            imageSize: "medium",
+            layout: "side-by-side",
+            text: "Running the model with a Philips Avent Soothie pacifier produced equivalent (von-Mises) stress and deformation maps across the mandible over a full suck cycle, showing where and when the shield drives peak loading into the jaw. These baseline results give us a reference to compare alternative shield geometries against.",
+          }
+        },
+        {
+          heading: "Further Work",
+          content: {
+            image: `${BASE_URL}/images/pacifierfea_transient.png`,
+            imagePosition: "right",
+            imageSize: "medium",
+            layout: "side-by-side",
+            textBlocks: [
+              {
+                text: "Next steps are to draw conclusions from a more detailed jaw model and to finalize a simulation that incorporates the rocking motion the pacifier induces on the mandible, which we have not yet been able to implement reliably.",
+              },
+            ]
+          }
+        }
+      ]
+    },
+    // 4th: Robolabs / Phoenix Farming
     {
     id: 3,
     title: "Mechanical Lead",
@@ -138,7 +315,7 @@ const portfolioData = {
         },
     ],
     },
-    // 3rd: Owl Vision
+    // 5th: Owl Vision
     {
     id: 7,
     title: "Mechanical Engineering Intern",
@@ -228,7 +405,7 @@ const portfolioData = {
         },
     ],
     },
-    // 4th: Baja SAE
+    // 6th: Baja SAE
     {
       id: 2,
       title: "Mechanical Engineer",
@@ -279,7 +456,7 @@ const portfolioData = {
         },
       ]
     },
-    // 5th: FRC Captain 2024
+    // 7th: FRC Captain 2024
     {
       id: 4,
       title: "Captain",
@@ -381,7 +558,7 @@ const portfolioData = {
         }
       ]
     },
-    // 6th: FRC Design Lead 2023
+    // 8th: FRC Design Lead 2023
     {
       id: 6,
       title: "Design Lead",
